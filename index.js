@@ -69,3 +69,43 @@ console.log(null_test)
 const fiveeightfievd = "          В лесу было тихо и спокойно. Листья деревьев шуршали от лёгкого ветерка. Птицы пели свои весёлые песни. Солнце светило ярко,но не обжигалоЯшла по тропинке, наслаждаясь свежим воздухом и красотойприродыВокруг меня были высокие деревья, густые кустарники и яркиецветыЯ видела белок, прыгающих по веткам, и зайцев, прячущихся в травеЯшла всё дальше и дальше, углубляясь в лес Вскоре я оказалась в небольшомclearingВцентре clearing былкрасивый пруд Вода в пруду была чистаяипрозрачнаЯприселанаберегу и стала любоваться отражением деревьеввводеЯпровелавлесуцелыйдень.Этобылачудесная прогулк"
 const fiveeightfiev = fiveeightfievd.trim().length
 console.log(fiveeightfiev)
+
+
+// ------------------------Type of ----------------------------------------
+
+// function asda(params) {};
+const asda = 32;
+
+console.log(typeof 5);
+console.log(typeof "5");
+console.log(typeof true);
+console.log(typeof null);
+console.log(typeof NaN);
+console.log(typeof asda);
+
+
+console.log(asda)
+
+
+
+// =======================Взаємодія з користувачем=========================
+
+// alert("Ты лох")
+// alert - выводит информацию
+
+// prompt("Когда ты родился?") 
+// promt = поел ввода
+// confirm("Ты хочеш продолжить?")
+
+function promptNumber(message) {
+    let value = prompt(message);
+    // Удаляем из строки все буквы
+    value = value.replace(/[^0-9]/g, "");
+    // Преобразуем строку в число
+    value = Number(value);
+    return value;
+  }
+  
+  let age = promptNumber("Сколько вам лет?");
+  console.log(age);
+  
