@@ -1,5 +1,8 @@
 // "use strict";
 
+print = console.log;
+
+
 // Властивість - характеристика, яка нас описує
 
 
@@ -97,15 +100,15 @@ console.log(asda)
 // promt = поел ввода
 // confirm("Ты хочеш продолжить?")
 
-function promptNumber(message) {
-    let value = prompt(message);
-    // Удаляем из строки все буквы
-    value = value.replace(/[^0-9]/g, "");
-    // Преобразуем строку в число
-    value = Number(value);
-    return value;
-  }
+// function promptNumber(message) {
+//     let value = prompt(message);
+//     // Удаляем из строки все буквы
+//     value = value.replace(/[^0-9]/g, "");
+//     // Преобразуем строку в число
+//     value = Number(value);
+//     return value;
+//   }
   
-  let age = promptNumber("Сколько вам лет?");
-  console.log(age);
-  
+//   let age = promptNumber("Сколько вам лет?");
+//   console.log(age);
+  print("1")
