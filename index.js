@@ -87,13 +87,13 @@ console.log(typeof NaN);
 console.log(typeof asda);
 
 
-console.log(asda)
+print(asda)
 
 
 
 // =======================Взаємодія з користувачем=========================
 
-// alert("Ты лох")
+// alert("Ты")
 // alert - выводит информацию
 
 // prompt("Когда ты родился?") 
@@ -111,4 +111,3 @@ console.log(asda)
   
 //   let age = promptNumber("Сколько вам лет?");
 //   console.log(age);
-  print("1")
