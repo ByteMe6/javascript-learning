@@ -48,4 +48,11 @@ console.log(mathSQRT)
 
 // завдання 9
 
+let NotNum = "1323.13232edwfwef322332"
+let num = parseInt(NotNum)
+let NotNNum = toString(num)
+console.log(NotNum)
+console.log(num)
+console.log(NotNNum)
+// незнаю як тут полагодити 🫥
 
