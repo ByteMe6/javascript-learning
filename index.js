@@ -15,3 +15,6 @@ console.log(user)
 console.clear()
 
 // const b = let a = "vasil"
+// one year ago
+// str maybe
+// 
