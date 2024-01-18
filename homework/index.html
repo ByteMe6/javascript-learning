@@ -3,46 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>homewrok</title>
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <title>Document</title>
   </head>
   <body>
-    <!-- 1. Створити розмітку з кнопкою та текстовим полем. За допомогою JavaScript отримати доступ до кнопки та текстового поля за їх ідентифікаторами та змінити текст на кнопці на значення
-текстового поля.
-2. Створити розмітку з заголовком та зображенням. За допомогою JavaScript отримати доступ до зображення та змінити значення атрибута "src" на шлях до іншого зображення.
-3. Створити розмітку з посиланням та зображенням. За допомогою JavaScript отримати доступ до посилання та змінити значення атрибута "href" на нову URL-адресу. Також отримати
-доступ до зображення та додати новий атрибут "alt" з описом зображення.
-4. Створити розмітку зі списком елементів. За допомогою JavaScript отримати доступ до першого елемента списку та змінити його вміст на новий текст. -->
-    <button class="but1" id="but1">click me!</button>
-    <input type="text" class="inp1" placeholder="write here" id="inp1" />
+    <h1>1-2 завдання</h1>
+    <button class="button" data-action="openmodal">Відкрити модалку</button>
 
-    <!-- 2 -->
-    <h1 class="zagolovok" id="zagolovok">Заголовок</h1>
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
-      alt=""
-      class="kartinka"
-      id="kartinka"
-      width="600px"
+    <div class="backdrop js-backdrop">
+      <div class="modal" id="modal">
+        <h2>Modal window</h2>
+        <p>
+          In user interface design for computer applications, a modal window is
+          a graphical control element subordinate to an application's main
+          window. It creates a mode that disables the main window but keeps it
+          visible, with the modal window as a child window in front of it. Users
+          must interact with the modal window before they can return to the
+          parent application. This avoids interrupting the workflow on the main
+          window. Modal windows are sometimes called heavy windows or modal
+          dialogs because they often display a dialog box.
+        </p>
+        <button type="button" class="button" data-action="closemodal">
+          Закрити
+        </button>
+      </div>
+    </div>
+    <h1>3 завдання</h1>
+  <form action="" method="post">
+    <input type="radio" id="red" name="color" value="red">
+    <label for="red">Червоний</label>
+    <input type="radio" id="white" name="color" value="white">
+    <label for="white">Білий</label>
+    <input type="radio" id="green" name="color" value="green">
+    <label for="green">Зелений</label>
+  </form>
+    <h1>4 завдання</h1>
+    <input type="text" placeholder="Ваше ім'я?" id="name-input" />
+    <h1>Привіт, <span id="name-output">незнайомець</span>!</h1>
+    <h1>5 завдання</h1>
+    <input
+      type="text"
+      id="validation-input"
+      data-length="6"
+      placeholder="Введи 6 символів"
     />
+    <h1>6 завдання</h1>
+    <input id="font-size-control" type="range" />
     <br />
-    <!-- 3 -->
-    <img
-      src="123"
-      alt=""
-      class="kartinka2"
-      id="kartinka2"
-      width="600px"
-    />
-    <a href="https://us04web.zoom.us/postattendee?mn=_OUZ1Zc0z7M5-dwcpmlVFSNIB5HXB0M-gN4.ADdzEtQWZCE_fwqv" class="silka" id="s" > silka </a>
-    <!-- https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg -->
-
-    <!-- 4 -->
-    <ul class="list" id="list">
-        <li class="listItem" id="listItem1">1</li>
-        <li class="listItem" id="listItem2">2</li>
-        <li class="listItem" id="listItem3">3</li>
-    </ul>
-    <script src="./main.js"></script>
+    <span id="text">Абракадабра!</span>
   </body>
+
+  <script src="./main.js"></script>
 </html>

@@ -1,38 +1,140 @@
-// 1. Створити розмітку з кнопкою та текстовим полем. За допомогою JavaScript отримати доступ до кнопки та текстового поля за їх ідентифікаторами та змінити текст на кнопці на значення
-// текстового поля.
-// 2. Створити розмітку з заголовком та зображенням. За допомогою JavaScript отримати доступ до зображення та змінити значення атрибута "src" на шлях до іншого зображення.
-// 3. Створити розмітку з посиланням та зображенням. За допомогою JavaScript отримати доступ до посилання та змінити значення атрибута "href" на нову URL-адресу. Також отримати
-// доступ до зображення та додати новий атрибут "alt" з описом зображення.
-// 4. Створити розмітку зі списком елементів. За допомогою JavaScript отримати доступ до першого елемента списку та змінити його вміст на новий текст.
-const but1 = document.querySelector("#but1")
-const inp1 = document.querySelector("#inp1")
-console.log(but1 + inp1)
-// console.log(inp1.value);
-// 2. Створити розмітку з заголовком та зображенням. За допомогою JavaScript отримати доступ до зображення та змінити значення атрибута "src" на шлях до іншого зображення.
-const kartinka = document.querySelector("#kartinka")
-const zagolovok = document.querySelector("#zagolovok")
+// 1) Написати скрипт відкриття та закриття модального вікна по кнопці.(розмітка  є у NewDz.html)
+const modalButtons = document.querySelectorAll('[data-action="openmodal"], [data-action="closemodal"]');
+const backdrop = document.querySelector('.js-backdrop');
+const modal = document.querySelector('#modal');
 
-kartinka.src = 
-    "https://lokalise.com/blog/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/10/Google_Translate_featured_blog_post_visual-1-scaled.jpg.webp";
+modalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const action = button.dataset.action;
 
-// 3. Створити розмітку з посиланням та зображенням. 
-// За допомогою JavaScript отримати доступ до посилання та змінити
-//  значення атрибута "href" на нову URL-адресу. Також отримати
-// доступ до зображення та додати новий атрибут "alt" з описом 
-// зображення.
-const s = document.querySelector("#s")
-const kartinka2 = document.querySelector("#kartinka2")
+    if (action === 'openmodal') {
+      openModal();
+    } else if (action === 'closemodal') {
+      closeModal();
+    }
+  });
+});
 
-s.href = "https://prom.ua/brands/Silka"; 
+backdrop.addEventListener('click', closeModal);
 
-kartinka2.alt = "22343у"
+function openModal() {
+  document.body.classList.add('show-modal');
+  // Or, alternatively, using the provided CSS class:
+  // modal.classList.add('openedModal');
+}
+
+function closeModal() {
+  document.body.classList.remove('show-modal');
+  // Or, alternatively, using the provided CSS class:
+  // modal.classList.remove('openedModal');
+}
+// 3) Напиши скрипт в якому
+// є три радіобатони зі значенями кольрів.
+// При обиранніна будь якого колір
+// фону боді змінюється відповідно(розмітка форми є 
+//у NewDz.html)
+const red = document.querySelector("#red");
+const white = document.querySelector('#white');
+const green = document.querySelector("#green");
+
+red.addEventListener("click", function() {
+  document.body.style.backgroundColor = "red";
+});
+
+white.addEventListener("click", function() {
+  document.body.style.backgroundColor = "white";
+});
+
+green.addEventListener("click", function() {
+  document.body.style.backgroundColor = "green";
+});
+
+// 4) Напиши скрипт який, при наборі тексту в 
+// інпут input#name-input (подія input), 
+// підставляє його поточне значення в span#name-output. 
+// якщо інпут порожній, в спані повинен відображатися рядок
+ // 'незнайомець'.(розмітка форми є у NewDz.html)
+
+const nameInput = document.getElementById("name-input");
+const nameOutput = document.getElementById("name-output");
+
+nameInput.addEventListener("input", function() {
+  nameOutput.textContent = nameInput.value || "незнайомець";
+
+});
 
 
-// 4. Створити розмітку зі списком елементів. 
-// За допомогою JavaScript отримати доступ 
-// до першого елемента списку та змінити його 
-// вміст на новий текст.
+// 5)Напиши скрипт, який би при втраті фокуса на інпут,
+ // перевіряв його вміст на правильну кількість символів.
+ // (розмітка форми є у NewDz.html)
+// Скільки символів має бути в інпут, вказується в його 
+// атрибуті data-length.
+// Якщо введена відповідна кількість, то border інпут стає 
+// зеленим,   якщо неправильне - червоним.
+// Для додавання стилів, використовуй CSS-класи valid і 
+// invalid.(стилі  є у NewDz.html)
 
-const list = document.getElementById("list");
-const firstListItem = list.getElementsByTagName("li")[0];
-firstListItem.innerHTML = "New text";
+// Отримуємо інпут, який потрібно перевірити
+const validationInput = document.getElementById("validation-input");
+
+// Отримуємо довжину, яка повинна бути в інпуті
+const length = validationInput.dataset.length;
+
+// Додаємо слухач події "втрата фокуса" на інпут
+validationInput.addEventListener("blur", () => {
+  // Отримуємо вміст інпуту
+  const value = validationInput.value;
+
+  // Перевіряємо, чи відповідає вміст інпуту заданій довжині
+  const isCorrect = value.length === length;
+
+  // Якщо вміст інпуту відповідає заданій довжині, то встановлюємо клас "valid"
+  if (isCorrect) {
+    validationInput.classList.add("valid");
+  } else {
+    validationInput.classList.add("invalid");
+  }
+});
+
+
+
+
+// 6) Напиши скрипт, який реагує на зміну
+ // значення input#font-size-control (подія input)
+  // і змінює інлайн-стиль span#text оновлюючи властивість 
+  // font-size. В результаті при перетягуванні повзунка 
+  // змінюватиметься розмір тексту.
+
+// Отримуємо повзунок, який потрібно відстежувати
+const fontSizeControl = document.getElementById("font-size-control");
+
+// Отримуємо текст, розмір якого потрібно змінювати
+const text = document.getElementById("text");
+
+// Додаємо слухач події "зміна значення" на повзунок
+fontSizeControl.addEventListener("input", () => {
+  // Отримуємо значення повзунка
+  const value = fontSizeControl.value;
+
+  // Встановлюємо розмір тексту в залежності від значення повзунка
+  text.style.fontSize = `${value}px`;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,134 +1,111 @@
-//обʼєкт = це складний тип данних(єдиний)
-// обʼєкт створюється за допомогою {}фігурних дужок
-// Чому складний тип данних томущо там багато може бути інших типів данних.
-//Складні типи даних зберігаються за посиланням
-const user = {
-    nickName: "Grinch",
-    height: 180,
-    weight: 80,
-    subscribe: true,
-    stillNewYear() {
-      console.log("New Year is end");
-    },
-  };
-  
-  const header = {
-    // atributes:
-    // textContent:
-    // styles:
-  };
-  let abc = 4;
-  
-  abc = 5;
-  
-  const body = document.body;
-  // querySelector =   то є метод який дозволяє нам знайти будь який html тег за будь якою ознакою
-  
-  //querySelector завжди ми всередину маємо передавати строку з ознакою за якою ми шукаємо [] = селектор атрибуту  . = селектор класу # = селектер id
-  //  Я хочу знайти елемент з ознакою класс button
-  // якщо не знаходить елемент повертає null
-  const button = document.querySelector(".button");
-  console.log(button);
-  button.textContent = "Надіслати грощі.Ви банкрот";
-  
-  const img = document.querySelector(".img-fluid");
-  
-  console.log(img);
-  img.src =
-    "https://png.pngtree.com/thumb_back/fw800/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg";
-  img.alt = "picture";
-  
-  console.log(img);
-  
-  // ЩО таке DOM та обʼєктна модель документу
-  // BOM надає можливість отримати інформацію з браузера (бажані мови, мова за замовчуванням, назву браузера) // console.log(Navigator.getBattery); https://developer.mozilla.org/ru/docs/Web/API/Navigator
-  //  js це розширення мови - EcmaScript
-  
-  //Навігація по DOM -
-  // querySelector() = дає нам можливість знайти будь який елемент з DOM - дерева
-  // в дужки маємо передати строку з маркером з яким шукати
-  // # . []
-  
-  const section = document.querySelector("#section");
-  // Батьківський елeмент
-  console.log(section.parentElement);
-  // parentNode child Nodes = дуже рідкі у використанні слугують для того щоб знаходити дитячі елементи
-  console.log(section.parentNode);
-  console.log(section.childNodes);
-  // textNode
-  console.log(section.firstChild);
-  // firstElementChild = повертає нам саме перший дитячий тег який ми зустрічаєм
-  console.log(section.firstElementChild);
-  // lastElementChild = повертає нам саме перший дитячий тег який ми зустрічаєм
-  console.log(section.lastElementChild);
-  // textNode
-  console.log(section.lastChild);
-  
-  // якщо сусід є то повертає нам теги минулого сусіда
-  console.log(section.previousElementSibling);
-  // Якщо елемент не знаходиться повертає null стосується усих вище зазначених елементів
-  // якщо сусід є то повертає нам теги наступного сусіда
-  console.log(section.nextElementSibling);
-  console.log(section.nextSibling);
-  console.log(section.previousSibling);
-  
-  // сусіди
-  // батькіські елементи
-  // текстові елементи
-  // дитячі елементи
-  
-  // Пошук елементів
-  
-  // Властивості та атрибути
-  const image = document.getElementById("img");
-  
-  console.log(image.src);
-  console.log(image.alt);
-  
-  image.src =
-    "https://img.freepik.com/free-photo/a-picture-of-fireworks-with-a-road-in-the-background_1340-43363.jpg";
-  image.alt = "ТУТ ПУСТО";
-  
-  const link = document.querySelector("#link");
-  
-  link.href = "../style.css";
-  
-  console.log(link.href);
-  
-  const input = document.querySelector(".form-control");
-  
-  console.log(input.value);
-  
-  input.value = "Кіт!";
-  
-  const text = document.querySelector("#text");
-  
-  console.log(text.textContent);
-  
-  text.textContent = input.value;
-  
-  //classlist
-  // classList = усі класи які є у елемента
-  console.log(text.classList);
-  
-  text.classList.remove("p");
-  text.classList.remove("d");
-  text.classList.remove("f");
-  text.classList.remove("a");
-  
-  console.log(text.classList);
-  
-  text.classList.add("active");
-  console.log(text.classList);
-  // text.classList.remove("active");
-  //replace()замінює першу строку("active") на другу("normal")
-  text.classList.replace("active", "normal");
-  
-  // Style = дозволяє додавати інлайнові стилі
-  
-  // Якщо у властивості є більше ніж одне слово
-  text.style.backgroundColor = "tomato";
-  text.style.fontSize = "24px";
-  text.style.textAlign = "center";
-  
-  console.log(text.style);
+// -------------------------EVENTS-------------------
+// 1) Розбір ДЗ/ кахут
+// 2) Ивенти(які вони бувають та як зними працювати)
+// addEventListener()
+// removeEventListener()
+// 3)Івенти форм,інпутів...(Присвятити час різновидам івентів)
+// Відправка форми, отримання значення інпута, перевикористання отриманих значень
+
+// ЯК ДОДАТИ Слухач подій
+
+// const button = document.querySelector("#button");
+
+// Подія click
+// button - звернення до елементу на якому ми бажаємо відслідковувати івенти
+// addEventListener() - метод який дозволяє нам повісити слухач подій який кожного разу коли відбудеться вказана подія буде тригеритись
+// "click" = назва події яку ми відслідковуємо
+// onClick = функція, яка реагує на подію
+
+// Змінна - це комірка в пам'яті твого компухтера в яку він записує інформацію
+
+// let,const ,var = 3 ключові слова для створення змінної
+//
+
+// let = ключове слово яке означає,що данні які збережені у цій комірці памʼяті можуть бути зміненені
+// const = ключове слово яке означає ,що данні які ми збережемо за допомогою нього будуть незмінними
+// var - застаріла конструкція яка вишла з використання
+// let name = "Nikita";
+// const
+// var
+
+let counter = 0;
+let something = 10;
+const button = document.getElementById("button");
+
+button.addEventListener("click", onClick);
+
+function onClick(event) {
+  // e = обʼєкт події(Стан сторінки на момент події)
+  // e.target = це посилання на елемент на якому відбулась подія
+
+  console.log(event.target.textContent);
+  console.log(event.target);
+  console.log(event.currentTarget);
+  console.log(event.type); // повертає назву події яка відбулась
+  event.target.textContent = `Ти клікнув ${
+    counter + 1
+  } 
+  // кількість разів,яка тобі залишилось клікнути ${something - 1} `;
+  counter += 1;
+  something -= 1;
+  console.log("Ти клікнув на кнопку");
+
+  if (counter === 10) {
+    button.removeEventListener("click", onClick);
+  }
+}
+
+console.log(counter);
+
+const div = document.querySelector("#container");
+console.log(div);
+
+div.addEventListener("click", onClickk);
+
+function onClickk(event) {
+  // e.target = це посилання на елемент на якому відбулась подія
+  console.log(event.target);
+  // e.currentTarget = повертає елемент на який встановлено слухач події(addeventlistener)
+  console.log(event.currentTarget);
+}
+
+const input = document.querySelector("#input");
+const buttonText = document.querySelector("#buttonText");
+
+input.addEventListener("input", onInput);
+
+function onInput(event) {
+  const inputValue = event.target.value;
+  buttonText.textContent = event.target.value;
+}
+
+const form = document.querySelector("#form");
+
+form.addEventListener("submit", onSubmit);
+
+function onSubmit(event) {
+  event.preventDefault();
+  // ЩОб ОТРИМАТИ ЗНАЧЕННЯ ІНПУТА,
+  // ЗНАЙТИ ІНПУТ
+  // Дописати .value
+  //form.elements = дозволяє отримати доступ до усіх полів форми(якщо html тегам дати атрибут name то до елементів у формі можна звертатись не за індексами а за іменами)
+  //   console.log(form.elements.name.value);
+  //   console.log(form.elements.nickname.value);
+  const name = form.elements.name.value;
+  const nickname = form.elements.nickname.value;
+
+  console.log(name, nickname);
+}
+
+input.addEventListener("focus", onFocus);
+// Focus відпрацьовує коли елемент обрано
+function onFocus(event) {
+  //   input.style.color = "green";
+  input.classList.add("green");
+}
+
+input.addEventListener("blur", onBlur);
+//blur відпрацьовує коли елемент втрачає фокус (обрали інакший елемент)
+function onBlur(event) {
+  input.classList.remove("green");
+}
