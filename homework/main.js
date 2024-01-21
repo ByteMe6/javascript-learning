@@ -119,7 +119,7 @@ fontSizeControl.addEventListener("input", () => {
   // Встановлюємо розмір тексту в залежності від значення повзунка
   text.style.fontSize = `${value}px`;
 });
-
+// 1
 
 
 
