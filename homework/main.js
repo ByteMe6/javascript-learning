@@ -58,7 +58,7 @@ green.addEventListener("click", function() {
 const nameInput = document.getElementById("name-input");
 const nameOutput = document.getElementById("name-output");
 
-nameInput.addEventListener("input", function() {
+nameInput.addEventListener("input" , function() {
   nameOutput.textContent = nameInput.value || "незнайомець";
 
 });
@@ -78,22 +78,27 @@ nameInput.addEventListener("input", function() {
 const validationInput = document.getElementById("validation-input");
 
 // Отримуємо довжину, яка повинна бути в інпуті
-const length = validationInput.dataset.length;
+const length = Number(validationInput.dataset.length);
 
 // Додаємо слухач події "втрата фокуса" на інпут
-validationInput.addEventListener("blur", () => {
+validationInput.addEventListener("blur", (e) => {
   // Отримуємо вміст інпуту
-  const value = validationInput.value;
+  const value = e.target.value;
+  console.log(value + " довжина " + value.length)
 
   // Перевіряємо, чи відповідає вміст інпуту заданій довжині
+
+  console.log(value.length + "/" + length)
   const isCorrect = value.length === length;
 
   // Якщо вміст інпуту відповідає заданій довжині, то встановлюємо клас "valid"
   if (isCorrect) {
     validationInput.classList.add("valid");
+    validationInput.classList.remove("invalid")
   } else {
     validationInput.classList.add("invalid");
   }
+
 });
 
 
