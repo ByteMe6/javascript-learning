@@ -34,40 +34,42 @@ function checkSum() {
 // ct
 const ct = document.getElementById("ct");
 
-ct.addEventListener("click", checkText)
+ct.addEventListener("click", checkText);
 
 function checkText() {
   const text = document.querySelector("#jsTXT").value;
-  console.log(text)
+  console.log(text);
 
-const incl = "js"
-const porivnanya = text.toLowerCase()
-console.log(porivnanya)
+  const incl = "js";
+  const porivnanya = text.toLowerCase();
+  console.log(porivnanya);
   if (porivnanya.includes("js")) {
-    document.getElementById("result").textContent =
-      "Текст містить слово js";
+    document.getElementById("result").textContent = "Текст містить слово js";
   } else {
-    document.getElementById("result").textContent =
-      "Текст не містить слово js";
+    document.getElementById("result").textContent = "Текст не містить слово js";
   }
 }
 // 4)Створити розмітку  з формою з полями введення та кнопкою. При натисканні на кнопку перевіряти, чи введене число більше за 10 та менше за 20, якщо так, то виводити повідомлення "Число входить в діапазон від 10 до 20", якщо ні - "Число не входить в діапазон від 10 до 20".
+
+// 1. підключити хтмл код до нашого джаваскрипта
 const numberInput = document.querySelector(".number-input");
 const checkButton = document.querySelector(".check-button");
 const result = document.getElementById("results");
 
-checkButton.addEventListener("click", function (e) {
-  e.preventDefault();
+checkButton.addEventListener("click", CLCKL);
+function CLCKL(e) {
+  const number = Number(numberInput.value);
 
-  const number = numberInput.value;
-
-  if (number > 10 && number < 20) {
+  if (number >= 10 && number <= 20) {
     result.textContent = "Число в діапазоні";
   } else {
     result.textContent = "Число поза діапазоном";
   }
-});
+}
 // 5)Створити розмітку  з формою з полями введення та кнопкою. При натисканні на кнопку перевіряти, чи введені дані правильно заповнені, якщо так, то перенаправляти на іншу сторінку, якщо ні - виводити повідомлення про помилку. Правильно заповнені дані: ім'я містить не менше 3 символів, email містить символ @ та крапку після неї, пароль містить не менше 6 символів.
+
+const gogo = document.getElementById("gogo");
+gogo.addEventListener("click", validate);
 
 function validate() {
   const name = document.getElementById("name").value;
@@ -80,7 +82,7 @@ function validate() {
     valid = false;
   }
 
-  if (!email.includes("@") || !email.includes(".")) {
+  if (!email.includes("@")) {
     valid = false;
   }
 
@@ -88,7 +90,7 @@ function validate() {
     valid = false;
   }
 
-  if (valid) {
+  if (valid === true) {
     window.location = "https://www.example.com";
   } else {
     document.getElementById("error").textContent = "Помилка введення даних";
