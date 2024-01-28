@@ -30,15 +30,22 @@ function checkSum() {
 }
 
 // 3)Створити розмітку  з текстовим полем та кнопкою. При натисканні на кнопку перевіряти, чи введений текст містить слово "JavaScript", якщо так, то виводити повідомлення "Текст містить слово JavaScript", якщо ні - "Текст не містить слово JavaScript".
+
+// ct
+const ct = document.getElementById("ct");
+
+ct.addEventListener("click", checkText)
+
 function checkText() {
-  const text = document.querySelector("input").value;
+  const text = document.querySelector("#jsTXT").value;
+  console.log(text)
 
   if (text.includes("js")) {
     document.getElementById("result").textContent =
-      "Текст містить слово JavaScript";
+      "Текст містить слово js";
   } else {
     document.getElementById("result").textContent =
-      "Текст не містить слово JavaScript";
+      "Текст не містить слово js";
   }
 }
 // 4)Створити розмітку  з формою з полями введення та кнопкою. При натисканні на кнопку перевіряти, чи введене число більше за 10 та менше за 20, якщо так, то виводити повідомлення "Число входить в діапазон від 10 до 20", якщо ні - "Число не входить в діапазон від 10 до 20".
