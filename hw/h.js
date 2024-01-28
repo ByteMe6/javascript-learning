@@ -40,7 +40,10 @@ function checkText() {
   const text = document.querySelector("#jsTXT").value;
   console.log(text)
 
-  if (text.includes("js")) {
+const incl = "js"
+const porivnanya = text.toLowerCase()
+console.log(porivnanya)
+  if (porivnanya.includes("js")) {
     document.getElementById("result").textContent =
       "Текст містить слово js";
   } else {
