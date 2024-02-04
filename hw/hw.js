@@ -8,21 +8,31 @@ function onSelect() {
 
   const value1 = select1.value;
 
-  switch (value1) {
-    case "sik":
-      peshka.textContent = "Сік";
-      break;
+  // switch (value1) {
+  //   case "sik":
+  //     peshka.textContent = "Сік";
+  //     break;
 
-    case "kava":
-      peshka.textContent = "Кава";
-      break;
+  //   case "kava":
+  //     peshka.textContent = "Кава";
+  //     break;
 
-    case "chay":
-      peshka.textContent = "Чай";
-      break;
+  //   case "chay":
+  //     peshka.textContent = "Чай";
+  //     break;
 
-    default:
-      peshka.textContent = "Ничего не выбрано";
+  //   default:
+  //     peshka.textContent = "Ничего не выбрано";
+  // }
+
+  if (value1 === "sik") {
+    peshka.textContent = "Сік";
+  } else if (value1 === "kava") {
+    peshka.textContent = "Кава";
+  } else if (value1 === "chay") {
+    peshka.textContent = "Чай";
+  } else {
+    peshka.textContent = "Ничего не выбрано";
   }
 }
 // 4)Створити розмітку  з полем введення, що приймає рядок та кнопкою. При натисканні на кнопку перевіряти, чи введений рядок є днем тижня (наприклад: "понеділок", "вівторок" і т.д.), виводити відповідне повідомлення про робочий день або вихідний.
@@ -32,19 +42,30 @@ function myFunction() {
 
   let text = document.getElementById("text");
 
-  switch (value2) {
-    case "понедельник":
-    case "вторник":
-    case "среда":
-    case "четверг":
-    case "пятница":
-      text.textContent = "Это рабочий день";
-      break;
+  // switch (value2) {
+  //   case "понедельник":
+  //   case "вторник":
+  //   case "среда":
+  //   case "четверг":
+  //   case "пятница":
+  //     text.textContent = "Это рабочий день";
+  //     break;
 
-    case "суббота":
-    case "воскресенье":
-      text.textContent = "Это выходной день";
-      break;
+  //   case "суббота":
+  //   case "воскресенье":
+  //     text.textContent = "Это выходной день";
+  //     break;
+  // }
+  if (
+    value2 === "понедельник" ||
+    value2 === "вторник" ||
+    value2 === "среда" ||
+    value2 === "четверг" ||
+    value2 === "пятница"
+  ) {
+    text.textContent = "Це НЕ вихідний";
+  } else {
+    text.textContent = "Це вихідний";
   }
 }
 
@@ -55,49 +76,77 @@ const but3 = document.getElementById("but3");
 but3.addEventListener("click", clc);
 
 function clc() {
-const inp3 = Number(document.getElementById("input3").value)
+  const inp3 = Number(document.getElementById("input3").value);
 
-  switch (inp3) {
-    case 1:
-      z3p.textContent = "January, 21";
-      break;
+  // switch (inp3) {
+  //   case 1:
+  //     z3p.textContent = "January, 21";
+  //     break;
 
-    case 2:
-      z3p.textContent = "February, 28/29";
-      break;
+  //   case 2:
+  //     z3p.textContent = "February, 28/29";
+  //     break;
 
-    case 3:
-      z3p.textContent = "March, 31";
-      break;
-    case 4:
-      z3p.textContent = "April, 30";
-      break;
-    case 5:
-      z3p.textContent = "May, 31";
-      break;
-    case 6:
-      z3p.textContent = "June, 30";
-      break;
-    case 7:
-      z3p.textContent = "July, 31";
-      break;
-    case 8:
-      z3p.textContent = "August, 31";
-      break;
-    case 9:
-      z3p.textContent = "September, 30";
-      break;
-    case 10:
-      z3p.textContent = "October, 31";
-      break;
-    case 11:
-      z3p.textContent = "November, 30";
-      break;
-    case 12:
-      z3p.textContent = "December, 31";
-      break;
-    default:
-      break;
+  //   case 3:
+  //     z3p.textContent = "March, 31";
+  //     break;
+  //   case 4:
+  //     z3p.textContent = "April, 30";
+  //     break;
+  //   case 5:
+  //     z3p.textContent = "May, 31";
+  //     break;
+  //   case 6:
+  //     z3p.textContent = "June, 30";
+  //     break;
+  //   case 7:
+  //     z3p.textContent = "July, 31";
+  //     break;
+  //   case 8:
+  //     z3p.textContent = "August, 31";
+  //     break;
+  //   case 9:
+  //     z3p.textContent = "September, 30";
+  //     break;
+  //   case 10:
+  //     z3p.textContent = "October, 31";
+  //     break;
+  //   case 11:
+  //     z3p.textContent = "November, 30";
+  //     break;
+  //   case 12:
+  //     z3p.textContent = "December, 31";
+  //     break;
+  //   default:
+  //     z3p.textContent = "місяців всього 12";
+  //     break;
+  // }
+  if (inp3 <= 1.9999999999999999999) {
+    z3p.textContent = "January, 21";
+  } else if (parseInt(inp3) === 2) {
+    z3p.textContent = "February, 28/29";
+  } else if (parseInt(inp3) === 3) {
+    z3p.textContent = "March, 31";
+  } else if (parseInt(inp3) === 4) {
+    z3p.textContent = "April, 30";
+  } else if (parseInt(inp3) === 5) {
+    z3p.textContent = "May, 31";
+  } else if (parseInt(inp3) === 6) {
+    z3p.textContent = "June, 30";
+  } else if (parseInt(inp3) === 7) {
+    z3p.textContent = "July, 31";
+  } else if (parseInt(inp3) === 8) {
+    z3p.textContent = "August, 31";
+  } else if (parseInt(inp3) === 9) {
+    z3p.textContent = "September, 30";
+  } else if (parseInt(inp3) === 10) {
+    z3p.textContent = "October, 31";
+  } else if (parseInt(inp3) === 11) {
+    z3p.textContent = "November, 30";
+  } else if (parseInt(inp3) === 12) {
+    z3p.textContent = "December, 31";
+  } else {
+    z3p.textContent = "місяців всього 12";
   }
 }
 // 7)Створити розмітку  з полем введення, що приймає назву кольору (наприклад, "червоний", "синій" і т.д.) та кнопкою. При натисканні на кнопку виводити відповідне повідомлення про дію: якщо це "червоний" - "стоп", якщо "зелений" - "йти", якщо "жовтий" - "чекати".
