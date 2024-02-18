@@ -23,3 +23,12 @@ console.log(myStudents)
 console.log(tupiStudents)
 console.log(myStudents + tupiStudents)
 console.log(iTupiINormalniStudents)
+
+const stringi = "Hello, world!"
+const  arrayi = stringi.split(",")
+console.log(arrayi)
+const joinMe = arrayi.join("")
+console.log(arrayi.join(", stupid"))
+const str11 = ["Hello World", "hello world"]
+str11[0] = str11[0].split("")
+console.log(str11)
