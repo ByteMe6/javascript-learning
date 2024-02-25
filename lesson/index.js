@@ -9,4 +9,21 @@ fff             uuuu        uuuu    nnnn      nnnn     ccccccc            tttt  
 fff              uuuu      uuuu     nnnn      nnnn      ccccccc           tttt  tttt    iiiiiiii
 fff                uuuuuuuu         nnnn      nnnn         ccccccccccc    tttttttt      iiiiiiii
 
+        ooooooooo
+     ooooo     ooooo
+    ooooo       ooooo
+     ooooo     ooooo
+        oooooooooo
+
+
+        
+    nnnnnnnn   
+ nnnn    nnnn 
+nnnn      nnnn
+nnnn      nnnn
+nnnn      nnnn
+nnnn      nnnn
+nnnn      nnnn
+nnnn      nnnn
+nnnn      nnnn
 
