@@ -1,29 +1,75 @@
-// function
-fffffffffff     uuuu        uuuu       nnnnnnnn            ccccccccccc    tttt            iii
-fffffffffff     uuuu        uuuu     nnnn    nnnn       ccccccc           tttt           iiiii
-fff             uuuu        uuuu    nnnn      nnnn    ccccccc             tttt            iii
-ffff            uuuu        uuuu    nnnn      nnnn   ccccccc              tttttttt 
-ffff            uuuu        uuuu    nnnn      nnnn   ccccccc              tttttttt      iiiiiiii
-ffffffffff      uuuu        uuuu    nnnn      nnnn   ccccccc              tttt          iiiiiiii
-fff             uuuu        uuuu    nnnn      nnnn     ccccccc            tttt          iiiiiiii
-fff              uuuu      uuuu     nnnn      nnnn      ccccccc           tttt  tttt    iiiiiiii
-fff                uuuuuuuu         nnnn      nnnn         ccccccccccc    tttttttt      iiiiiiii
+// fffffffffff
+// fff        
+// fff
+// ffffffffff        
+// fff       
+// fff        
+// fff        
+// fff        
 
-        ooooooooo
-     ooooo     ooooo
-    ooooo       ooooo
-     ooooo     ooooo
-        oooooooooo
+// uuuu        uuuu
+// uuuu        uuuu
+// uuuu        uuuu
+// uuuu        uuuu
+// uuuu        uuuu
+// uuuu        uuuu
+// uuuu        uuuu
+//  uuuu      uuuu 
+//    uuuuuuuu     
+
+//     nnnnnnnn   
+//   nnnn    nnnn 
+//  nnnn      nnnn
+//  nnnn      nnnn
+//  nnnn      nnnn
+//  nnnn      nnnn
+//  nnnn      nnnn
+//  nnnn      nnnn
+//  nnnn      nnnn
+
+//        ccccccccccc
+//     ccccccc       
+//   ccccccc         
+//  ccccccc          
+//  ccccccc          
+//  ccccccc          
+//    ccccccc        
+//     ccccccc       
+//        ccccccccccc
+
+//   tttt       
+//   tttt       
+//   tttt       
+//   tttttttt 
+//   tttttttt   
+//   tttt       
+//   tttt       
+//   tttt  tttt 
+//   tttttttt   
 
 
-        
-    nnnnnnnn   
- nnnn    nnnn 
-nnnn      nnnn
-nnnn      nnnn
-nnnn      nnnn
-nnnn      nnnn
-nnnn      nnnn
-nnnn      nnnn
-nnnn      nnnn
+//    iii
+//   iiiii
+//    iii
 
+//  iiiiiiii
+//  iiiiiiii
+//  iiiiiiii
+//  iiiiiiii
+//  iiiiiiii
+
+//     ooooooooo
+//  ooooo     ooooo   
+// ooooo       ooooo
+//  ooooo     ooooo  
+//     oooooooooo    
+
+//     nnnnnnnn   
+//  nnnn    nnnn 
+// nnnn      nnnn
+// nnnn      nnnn
+// nnnn      nnnn
+// nnnn      nnnn
+// nnnn      nnnn
+// nnnn      nnnn
+// nnnn      nnnn
