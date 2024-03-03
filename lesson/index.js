@@ -1,98 +1,41 @@
-// fffffffffff
-// fff
-// fff
-// ffffffffff
-// fff
-// fff
-// fff
-// fff
-
-// uuuu        uuuu
-// uuuu        uuuu
-// uuuu        uuuu
-// uuuu        uuuu
-// uuuu        uuuu
-// uuuu        uuuu
-// uuuu        uuuu
-//  uuuu      uuuu
-//    uuuuuuuu
-
-//     nnnnnnnn
-//   nnnn    nnnn
-//  nnnn      nnnn
-//  nnnn      nnnn
-//  nnnn      nnnn
-//  nnnn      nnnn
-//  nnnn      nnnn
-//  nnnn      nnnn
-//  nnnn      nnnn
-
-//        ccccccccccc
-//     ccccccc
-//   ccccccc
-//  ccccccc
-//  ccccccc
-//  ccccccc
-//    ccccccc
-//     ccccccc
-//        ccccccccccc
-
-//   tttt
-//   tttt
-//   tttt
-//   tttttttt
-//   tttttttt
-//   tttt
-//   tttt
-//   tttt  tttt
-//   tttttttt
-
-//    iii
-//   iiiii
-//    iii
-
-//  iiiiiiii
-//  iiiiiiii
-//  iiiiiiii
-//  iiiiiiii
-//  iiiiiiii
-//  iiiiiiii
-//  iiiiiiii
-//  iiiiiiii
 
 
-//      ooooooooo
-//      ooooooooo
-//  ooooo       ooooo
-//  ooooo       ooooo
-// ooooo         ooooo
-// ooooo         ooooo
-//  ooooo       ooooo
-//  ooooo       ooooo
-//      oooooooooo
-//      oooooooooo
+// signUp - функція яка як параметр приймає інші функція така функція називається функцією вищого порядку
 
-//     nnnnnnnn
-//  nnnn    nnnn
-// nnnn      nnnn
-// nnnn      nnnn
-// nnnn      nnnn
-// nnnn      nnnn
-// nnnn      nnnn
-// nnnn      nnnn
-// nnnn      nnnn
+const { toUpper, toLower } = require("lodash");
 
-function doCoffee(water, milk, coffee) {
-  console.log("вода : " + water, "молока : " + milk, "кава : " + coffee);
-
-  if (coffee && milk && water) {
-    console.log("Роблю каву з молоком");
-  } else if (water && coffee) {
-    console.log("Роблю каву ");
-  } else if (water) {
-    console.log("Додайте каву та молоко бо є лише вода");
-  } else {
-    console.log("тут нічого немає");
-  }
+function signUp(filterUser) {
+const filteredUser = filterUser();
 }
-a = 1 //same as let
+
+// колбек - це функція яка сама по собі ніколи не відпрацьовує. ПРоте вона відпрацьовує інших функціях та передається туди як параметр
+function getInfo() {
+console.log("Отримали інформацію");
+}
+function filterUser(info) {
+const userInfo = info();
+console.log("Юзери пофільтровані боти видалені");
+}
+
+const repeatLog = function (n) {
+  for (let i = 0; i < n; i += 1) {
+    console.log(i);
+  }
+};
+function findName(name, test) {
+let result = "Людина додік";
+if (test(name)) {
+  result = `${name} привіт. ти не додік. \n${name} але тупий`;
+}
+return result;
+}
+
+function test(name) {
+if (name === "artem".toLowerCase()) {
+return true;
+}else{
+return false;
+}
+}
+
+console.log(findName("artEm".toLowerCase(), test));
