@@ -39,3 +39,5 @@ return false;
 }
 
 console.log(findName("artEm".toLowerCase(), test));
+
+
