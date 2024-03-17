@@ -39,7 +39,7 @@ let bankAcount = {
 };
 
 bankAcount.password = "password1234567"
-bankAcount.Userloch = "user loch" 
+bankAcount.Userloch = "user loch"
 console.log(bankAcount);
 bankAcount.withdraw(2, "password1234567")
 bankAcount.deposit(5, "password1234567")
