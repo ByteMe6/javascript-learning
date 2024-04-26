@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dom 2.0 homework</title>
+  </head>
+  <body>
+    <!-- Завдання 1 В HTML є список категорій ul#categories -->
+    <ul id="categories">
+      <li class="item">
+        <h2>Тварини</h2>
+        <ul>
+          <li>Кіт</li>
+          <li>Хом'як</li>
+          <li>Кінь</li>
+          <li>Папуга</li>
+        </ul>
+      </li>
+      <li class="item">
+        <h2>Продукти</h2>
+        <ul>
+          <li>Хліб</li>
+          <li>Петрушка</li>
+          <li>Сир</li>
+        </ul>
+      </li>
+      <li class="item">
+        <h2>Технології</h2>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Node</li>
+        </ul>
+      </li>
+    </ul>
+    <!-- Exercise 2 -->
+    <br /><br /><br /><br /><br />
+    <ul id="ingredients"></ul>
+    <!-- exercise 3 -->
+    <br /><br /><br /><br /><br />
+    <ul id="gallery"></ul>
+    <!-- exercise 4 -->
+    <br /><br /><br /><br /><br />
+    <div class="counter">
+      <button class="decrement-button" type="button">-1</button>
+      <span class="counter-value">0</span>
+      <button class="increment-button" type="button">+1</button>
+    </div>
+    <!-- exercise 5 -->
+    <br /><br /><br /><br /><br />
+    <input type="text" placeholder="Ваше ім'я?" id="name-input" />
+    <h1>Привіт, <span id="name-output">незнайомець</span>!</h1>
+    <script src="./hw.js"></script>
+    <!-- excercise 6 -->
+    <!-- <br /><br /><br /><br /><br />
+    <input
+      type="text"
+      id="validation-input"
+      data-length="6"
+      placeholder="Введи 6 символів"
+    /> -->
+    <!-- not working -->
+    <!-- exercise 7 -->
+    <input id="font-size-control" type="range" />
+    <br />
+    <span id="text">Абракадабра!</span>
+    <!-- exceersise 8 -->
+    <div id="controls">
+      <input type="number" min="0" max="100" step="1" />
+      <button type="button" data-action="render">Створити</button>
+      <button type="button" data-action="destroy">Очистити</button>
+    </div>
+
+    <div id="boxes"></div>
+  </body>
+</html>
