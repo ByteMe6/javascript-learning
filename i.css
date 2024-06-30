@@ -1,3 +1,6 @@
+img {
+    max-width: 250px;
+}
 body {
     display: flex;
     justify-content: space-around;
@@ -50,6 +53,7 @@ body {
 
 #modalImage {
     width: 100%;
+    width: 500px;
     height: auto;
 }
 
