@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автоматичне лінійне завантаження зображень</title>
+    <style>
+        /* Базові стилі для зображень */
+        .lazy-image {
+            min-height: 200px;
+            background-color: #f0f0f0;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+            transition: opacity 0.3s;
+        }
+        
+        /* Стилі для анімації завантаження */
+        .lazy-image.loading::before {
+            content: "Завантаження...";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(240, 240, 240, 0.8);
+        }
+
+        /* Контейнер для зображень */
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img class="lazy-image" data-src="https://www.calliaweb.co.uk/wp-content/uploads/2015/10/600x200.jpg" alt="Зображення 1">
+        <img class="lazy-image" data-src="https://www.calliaweb.co.uk/wp-content/uploads/2015/10/600x200.jpg" alt="Зображення 2">
+        <img class="lazy-image" data-src="https://www.calliaweb.co.uk/wp-content/uploads/2015/10/600x200.jpg" alt="Зображення 3">
+        <img class="lazy-image" data-src="https://www.calliaweb.co.uk/wp-content/uploads/2015/10/600x200.jpg" alt="Зображення 4">
+        <img class="lazy-image" data-src="https://www.calliaweb.co.uk/wp-content/uploads/2015/10/600x200.jpg" alt="Зображення 5">
+    </div>
+
+    <script>
+        // Функція для завантаження зображення
+        function loadImage(image) {
+            const src = image.dataset.src;
+            if (!src) return;
+
+            // Додаємо клас для анімації завантаження
+            image.classList.add('loading');
+
+            // Створюємо новий елемент img для попереднього завантаження
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+                // Коли зображення завантажено, оновлюємо оригінальний елемент
+                image.src = src;
+                image.classList.remove('loading');
+            };
+            img.onerror = () => {
+                // У випадку помилки, видаляємо клас завантаження
+                image.classList.remove('loading');
+                console.error('Помилка завантаження зображення:', src);
+            };
+
+            // Видаляємо data-src атрибут, щоб не завантажувати повторно
+            image.removeAttribute('data-src');
+        }
+
+        // Створюємо IntersectionObserver
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadImage(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        });
+
+        // Функція для початку спостереження за зображеннями
+        function observeImages() {
+            const images = document.querySelectorAll('img.lazy-image[data-src]');
+            images.forEach(img => observer.observe(img));
+        }
+
+        // Запускаємо спостереження за зображеннями одразу після завантаження сторінки
+        document.addEventListener('DOMContentLoaded', observeImages);
+
+        // Функція для перевірки підтримки WebP
+        async function supportsWebp() {
+            if (!self.createImageBitmap) return false;
+            
+            const webpData = 'https://www.calliaweb.co.uk/wp-content/uploads/2015/10/600x200.jpg';
+            const blob = await fetch(webpData).then(r => r.blob());
+            return createImageBitmap(blob).then(() => true, () => false);
+        }
+
+        // Перевіряємо підтримку WebP і оптимізуємо зображення, якщо можливо
+        supportsWebp().then(hasWebp => {
+            if (hasWebp) {
+                document.querySelectorAll('img.lazy-image[data-src]').forEach(img => {
+                    img.dataset.src = img.dataset.src.replace(/\.(jpg|png)$/, '.webp');
+                });
+            }
+        });
+
+        // Додаємо обробник подій для перевірки завантаження на різних пристроях
+        window.addEventListener('resize', observeImages);
+    </script>
+</body>
+</html>
