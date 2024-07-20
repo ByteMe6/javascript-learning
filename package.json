@@ -1,0 +1,12 @@
+{
+  "name": "my-local-server",
+  "version": "1.0.0",
+  "description": "Проект с локальным http-server",
+  "scripts": {
+    "start": "http-server",
+    "start:port": "http-server -p 8080"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
