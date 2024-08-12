@@ -1,0 +1,19 @@
+{
+  "name": "clickcorrect",
+  "version": "0.0.1",
+  "description": "Here you must click the correct key, from interesting here will be beutiful messages",
+  "main": "i.js",
+  "scripts": {
+    "test": "texs"
+  },
+  "keywords": [
+    "key",
+    "correct"
+  ],
+  "author": "ByteMe6",
+  "license": "ISC",
+  "dependencies": {
+    "toastify": "^2.0.1",
+    "toastify-js": "^1.12.0"
+  }
+}
