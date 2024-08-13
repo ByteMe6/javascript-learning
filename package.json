@@ -4,7 +4,9 @@
   "description": "Here you must click the correct key, from interesting here will be beutiful messages",
   "main": "i.js",
   "scripts": {
-    "test": "texs"
+    "test": "test",
+    "live": "http-server",
+    "ParLive": "parcel"
   },
   "keywords": [
     "key",
@@ -13,7 +15,12 @@
   "author": "ByteMe6",
   "license": "ISC",
   "dependencies": {
+    "chart.js": "^4.4.3",
+    "http-server": "^14.1.1",
     "toastify": "^2.0.1",
     "toastify-js": "^1.12.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0"
   }
 }
