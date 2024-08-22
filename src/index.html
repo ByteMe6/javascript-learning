@@ -3,16 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
+    <title>место для коментариев</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <!-- <include src="посилання на необхідний файл"></include> -->
-    <include src="./templates/t1.html"></include>
+    <h1 class="h1">место для коментариев</h1>
+    <input type="text" class="cmntEnterInp" placeholder="enter text here!" />
+    <input type="text" class="cmntEnterInp cmntNameEnterInp" placeholder="enter your name!" />
+    <input type="text" class="cmntImgEnter" placeholder="link to your icon" />
+    <button class="cmntEnterBtn">enter!</button>
 
-     <script src="data.js" type="module"></script>
-     <script src="i.js" type="module"></script>
+    <div class="cmntSection">
+      <div class="cmnt">
+        <div class="cmntInfo">
+          <img
+            src="https://avatars.githubusercontent.com/u/120343461?s=48&v=4"
+            class="cmntImg"
+            alt=""
+          />
+          <h4 class="cmntOwner">ByteMe6</h4>
+        </div>
+        <p class="cmntText">Первый!</p>
+      </div>
+    </div>
 
+
+
+    <script type="module" src="i.js"></script>
   </body>
 </html>
