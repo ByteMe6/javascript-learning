@@ -2,12 +2,14 @@ import Handlebars from "handlebars";
 
 // Определяем шаблон как строку прямо в JavaScript
 const commentTemplate = `
+ <div class="cmntSection">
 <div class="cmnt">
   <div class="cmntInfo">
     <img src="{{imgLink}}" class="cmntImg" alt="" />
     <h4 class="cmntOwner">{{owner}}</h4>
   </div>
   <p class="cmntText">{{text}}</p>
+</div>
 </div>
 `;
 
@@ -21,9 +23,9 @@ const submitButton = document.querySelector(".cmntEnterBtn");
 
 function addComment(text, name, imgLink) {
     const newComment = {
-        imgLink: imgLink || "https://avatars.githubusercontent.com/u/120343461?s=48&v=4",
+        imgLink: imgLink || "./loh.jpeg",
         owner: name || "Аноним",
-        text: text
+        text: text || "Я тварь которая пишет пустой коментарий!!"
     };
 
     const renderedComment = compiledTemplate(newComment);
