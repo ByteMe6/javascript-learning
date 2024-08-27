@@ -1,0 +1,19 @@
+body{
+    background-color:rgb(44, 44, 44);
+}
+p, span, h1, h2, h3, div, label, input{
+    color:rgb(176, 176, 176);
+}
+input{
+    background-color:rgb(44, 44, 44);
+    color: rgb(176, 176, 176);
+    border: 0;
+}
+
+.idBox{
+position: absolute;
+bottom:0;
+left: 40%;
+right: 40%;
+width: 20%;
+}

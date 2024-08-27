@@ -1,31 +1,14 @@
 {
-  "name": "jslessons",
-  "version": "2.0.0",
+  "name": "localstoragehw",
+  "version": "1.0.0",
   "description": "",
-  "homepage": "https://ByteMe6.github.io/javascript-learning",
+  "main": "i.js",
   "scripts": {
-    "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /javascript-learning/"
+    "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://ByteMe6.github.io/javascript-learning.git"
-  },
-  "keywords": [],
-  "author": "",
+  "author": "ByteME6",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/goitacademy/parcel-project-template/issues"
-  },
   "dependencies": {
-    "handlebars": "^4.7.8",
-    "modern-normalize": "^1.1.0"
-  },
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.6.0",
-    "parcel": "^2.6.0",
-    "parcel-reporter-clean-dist": "^1.0.4",
-    "posthtml-include": "^1.7.4"
-  },
-  "browserslist": "> 0.5%, last 2 versions, not dead"
+    "nanoid": "^5.0.7"
+  }
 }
