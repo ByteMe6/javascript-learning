@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймер з повідомленнями</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #timerInput, #startButton {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px;
+        }
+        #countdown {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #startButton {
+            font-size: 24px;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        #startButton:hover {
+            background-color: #45a049;
+        }
+
+        #startButton:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="timerInput" placeholder="Введіть час у секундах">
+    <button id="startButton">Почати відлік</button>
+    <div id="countdown"></div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Час вийшов!</p>
+        </div>
+    </div>
+
+    <script>
+        const timerInput = document.getElementById('timerInput');
+        const startButton = document.getElementById('startButton');
+        const countdown = document.getElementById('countdown');
+        const modal = document.getElementById('modal');
+        const closeModal = document.querySelector('.close');
+
+        let timer;
+
+        function startTimer() {
+            let seconds = parseInt(timerInput.value);
+            if (isNaN(seconds) || seconds <= 0) {
+                alert('Будь ласка, введіть правильний час');
+                return;
+            }
+
+            clearInterval(timer);
+            updateCountdown(seconds);
+
+            timer = setInterval(() => {
+                seconds--;
+                updateCountdown(seconds);
+
+                if (seconds <= 0) {
+                    clearInterval(timer);
+                    timeUp();
+                }
+            }, 1000);
+        }
+
+        function updateCountdown(seconds) {
+            countdown.textContent = `Залишилось часу: ${seconds} сек`;
+        }
+
+        function timeUp() {
+            showModal();
+            showNotification();
+            playSound();
+        }
+
+        function showModal() {
+            modal.style.display = 'block';
+        }
+
+        function showNotification() {
+            if ('Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        new Notification('Час вийшов!', {
+                            body: 'Ваш встановлений час закінчився.'
+                        });
+                    }
+                });
+            }
+        }
+
+        function playSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // 440 Hz
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 0.5); // Звук на 0.5 секунд
+        }
+
+        startButton.addEventListener('click', startTimer);
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
