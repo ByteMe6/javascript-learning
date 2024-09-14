@@ -119,3 +119,11 @@ body {
         opacity: 0;
     }
 }
+
+.timeInput{
+    border-radius: 30px;
+    border:0;
+    padding: 10px;
+    text-align: cetner;
+    background: #bedeb8;
+}

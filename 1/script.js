@@ -1,27 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const startButton = document.querySelector('.button');
+    const startButton = document.querySelector('.startButton');
+    const hoursInput = document.querySelector('.hours');
+    const minutesInput = document.querySelector('.minutes');
+    const secondsInput = document.querySelector('.seconds');
     let timerInterval;
-    let timeLeft = 30 * 1; // 5 минут в секундах (легко изменить)
-    const originalTime = timeLeft; // Сохраняем начальное время для сброса
+    let timeLeft = 0;
+
+    // Создаем div для сообщений один раз при загрузке страницы
+    let messageDiv = document.getElementById('message');
+    if (!messageDiv) {
+        messageDiv = document.createElement('div');
+        messageDiv.id = 'message';
+        document.body.appendChild(messageDiv);
+    }
 
     function updateDisplay() {
-        const minutes = Math.floor(timeLeft / 60);
+        const hours = Math.floor(timeLeft / 3600);
+        const minutes = Math.floor((timeLeft % 3600) / 60);
         const seconds = timeLeft % 60;
-        const message = `Осталось: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        const message = `Осталось: ${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         
-        let messageDiv = document.getElementById('message');
-        if (!messageDiv) {
-            messageDiv = document.createElement('div');
-            messageDiv.id = 'message';
-            document.body.appendChild(messageDiv);
-        }
         messageDiv.textContent = message;
         console.log(message);
     }
 
     function startTimer() {
         clearInterval(timerInterval);
-        timeLeft = originalTime; // Сброс к начальному времени
+        
+        // Получаем значения из полей ввода и конвертируем их в секунды
+        const hours = parseInt(hoursInput.value) || 0;
+        const minutes = parseInt(minutesInput.value) || 0;
+        const seconds = parseInt(secondsInput.value) || 0;
+        timeLeft = hours * 3600 + minutes * 60 + seconds;
+        
+        if (timeLeft <= 0) {
+            messageDiv.textContent = 'Пожалуйста, введите корректное время';
+            return;
+        }
+
         updateDisplay();
         startButton.textContent = 'Перезапустить';
 
@@ -31,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
-                let messageDiv = document.getElementById('message');
                 messageDiv.textContent = 'Время вышло!';
                 startButton.textContent = 'Начать';
                 
@@ -49,5 +64,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Инициализация дисплея
-    updateDisplay();
+    messageDiv.textContent = 'Введите время и нажмите "Начать"';
 });
