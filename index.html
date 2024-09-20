@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймер зворотного відліку</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .field {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .value {
+            font-size: 40px;
+            font-weight: bold;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            min-width: 60px;
+            text-align: center;
+        }
+        .label {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer" id="timer-1">
+        <div class="field">
+            <span class="value" data-value="days">00</span>
+            <span class="label">Days</span>
+        </div>
+
+        <div class="field">
+            <span class="value" data-value="hours">00</span>
+            <span class="label">Hours</span>
+        </div>
+
+        <div class="field">
+            <span class="value" data-value="mins">00</span>
+            <span class="label">Minutes</span>
+        </div>
+
+        <div class="field">
+            <span class="value" data-value="secs">00</span>
+            <span class="label">Seconds</span>
+        </div>
+    </div>
+
+    <script>
+        class CountdownTimer {
+            constructor({ selector, targetDate }) {
+                this.selector = selector;
+                this.targetDate = targetDate;
+                
+                this.refs = {
+                    days: document.querySelector(`${selector} [data-value="days"]`),
+                    hours: document.querySelector(`${selector} [data-value="hours"]`),
+                    mins: document.querySelector(`${selector} [data-value="mins"]`),
+                    secs: document.querySelector(`${selector} [data-value="secs"]`)
+                };
+                
+                this.timerId = null;
+                this.start();
+            }
+            
+            start() {
+                this.updateTimer();
+                this.timerId = setInterval(() => {
+                    this.updateTimer();
+                }, 1000);
+            }
+            
+            stop() {
+                clearInterval(this.timerId);
+            }
+            
+            updateTimer() {
+                const time = this.targetDate - new Date();
+                
+                if (time < 0) {
+                    this.stop();
+                    return;
+                }
+                
+                const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
+                const hours = this.pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+                const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+                const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
+                
+                this.refs.days.textContent = days;
+                this.refs.hours.textContent = hours;
+                this.refs.mins.textContent = mins;
+                this.refs.secs.textContent = secs;
+            }
+            
+            pad(value) {
+                return String(value).padStart(2, '0');
+            }
+        }
+
+        // Ініціалізація таймера
+        new CountdownTimer({
+            selector: '#timer-1',
+            targetDate: new Date('Oct 1, 2024'),
+        });
+    </script>
+</body>
+</html>
