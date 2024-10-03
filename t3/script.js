@@ -44,3 +44,6 @@ makeTransaction({ id: 72, amount: 75 })
 makeTransaction({ id: 73, amount: 100 })
   .then(logSuccess)
   .catch(logError);
+makeTransaction({ id: 1, amount: 1 })
+  .then(logSuccess)
+  .catch(logError);
