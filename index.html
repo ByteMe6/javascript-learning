@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Management System</h1>
+        
+        <!-- Form for adding new movies -->
+        <div class="add-movie-form">
+            <h2>Add New Movie</h2>
+            <input type="text" id="title" placeholder="Title">
+            <input type="text" id="genre" placeholder="Genre">
+            <input type="text" id="director" placeholder="Director">
+            <input type="number" id="year" placeholder="Year">
+            <button onclick="addMovie()">Add Movie</button>
+        </div>
+
+        <button onclick="getMovies()">Get All Movies</button>
+
+        <!-- Movies table -->
+        <table id="moviesTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Director</th>
+                    <th>Year</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="moviesTableBody"></tbody>
+        </table>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <h2>Edit Movie</h2>
+                <input type="text" id="editTitle" placeholder="Title">
+                <input type="text" id="editGenre" placeholder="Genre">
+                <input type="text" id="editDirector" placeholder="Director">
+                <input type="number" id="editYear" placeholder="Year">
+                <button onclick="saveEdit()">Save</button>
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    <script  src="index.js"></script>
+</body>
+</html>
