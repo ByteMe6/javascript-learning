@@ -5,25 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Management</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Movie Management System</h1>
+        <h1 data-aos="fade-down" data-aos-duration="1200">Movie Management System</h1>
         
         <!-- Form for adding new movies -->
-        <div class="add-movie-form">
+        <div class="add-movie-form" data-aos="fade-right" data-aos-duration="1000">
             <h2>Add New Movie</h2>
-            <input type="text" id="title" placeholder="Title">
-            <input type="text" id="genre" placeholder="Genre">
-            <input type="text" id="director" placeholder="Director">
-            <input type="number" id="year" placeholder="Year">
-            <button onclick="addMovie()">Add Movie</button>
+            <input type="text" id="title" placeholder="Title" data-aos="fade-up" data-aos-delay="200">
+            <input type="text" id="genre" placeholder="Genre" data-aos="fade-up" data-aos-delay="400">
+            <input type="text" id="director" placeholder="Director" data-aos="fade-up" data-aos-delay="600">
+            <input type="number" id="year" placeholder="Year" data-aos="fade-up" data-aos-delay="800">
+            <button onclick="addMovie()" data-aos="zoom-in" data-aos-delay="1000">Add Movie</button>
         </div>
 
-        <button onclick="getMovies()">Get All Movies</button>
+        <button onclick="getMovies()" data-aos="flip-up" data-aos-duration="800">Get All Movies</button>
 
         <!-- Movies table -->
-        <table id="moviesTable">
+        <table id="moviesTable" data-aos="fade-up" data-aos-duration="1500">
             <thead>
                 <tr>
                     <th>Title</th>
@@ -38,7 +39,7 @@
 
         <!-- Edit Modal -->
         <div id="editModal" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" data-aos="zoom-in">
                 <h2>Edit Movie</h2>
                 <input type="text" id="editTitle" placeholder="Title">
                 <input type="text" id="editGenre" placeholder="Genre">
@@ -49,6 +50,10 @@
             </div>
         </div>
     </div>
-    <script  src="index.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="index.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3001/movies';
+const API_URL = 'http://localhost:3082/movies';
 let currentEditId = null;
 
 // GET - отримання всіх фільмів
